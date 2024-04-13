@@ -12,15 +12,15 @@ namespace AuthApi.Controllers
         private readonly DataContext _context = context;
 
         // GET: Books
-        [HttpGet]
+        [HttpGet("GetBooks")]
         public async Task<List<Book>> GetBooks()
         {
             return await _context.Books.ToListAsync();
         }
 
         // GET: Books/Details/5
-        [HttpGet]
-        public async Task<string> Details([System.Web.Http.FromUri] int id)
+        [HttpGet("GetBooks")]
+        public async Task<string> Details(int id)
         {
             var book = await _context.Books
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -32,7 +32,7 @@ namespace AuthApi.Controllers
             return String.Empty;
         }
         // POST: Books/Create
-        [HttpPost]
+        [HttpPost("PostBooks")]
         public async Task<Book> Create(Book book)
         {
             book.Id = 0;
@@ -42,7 +42,7 @@ namespace AuthApi.Controllers
         }
 
         // POST: Books/Edit/
-        [HttpPost]
+        [HttpPost("PostBooks")]
         public async Task<Book> Edit(Book book)
         {
             _context.Update(book);
@@ -51,8 +51,8 @@ namespace AuthApi.Controllers
         }
 
         // Delete: Books/Delete/5
-        [HttpDelete]
-        public async Task Delete([System.Web.Http.FromUri] int id)
+        [HttpDelete("DeleteBooks")]
+        public async Task Delete(int id)
         {
             var book = await _context.Books
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -65,8 +65,8 @@ namespace AuthApi.Controllers
         }
 
         // Delete: Books/Delete/5
-        [HttpDelete]
-        public async Task<bool> DeleteConfirmed([System.Web.Http.FromUri] int id)
+        [HttpDelete("DeleteBooks")]
+        public async Task<bool> DeleteConfirmed(int id)
         {
             var book = await _context.Books.FindAsync(id);
             if (book != null)
