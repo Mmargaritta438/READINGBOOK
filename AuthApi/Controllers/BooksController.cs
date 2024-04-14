@@ -19,7 +19,7 @@ namespace AuthApi.Controllers
         }
 
         // GET: Books/Details/5
-        [HttpGet("GetBooks")]
+        [HttpGet("GetUsers")]
         public async Task<string> Details(int id)
         {
             var book = await _context.Books
@@ -42,7 +42,7 @@ namespace AuthApi.Controllers
         }
 
         // POST: Books/Edit/
-        [HttpPost("PostBooks")]
+        [HttpPost("PostUsers")]
         public async Task<Book> Edit(Book book)
         {
             _context.Update(book);
@@ -65,7 +65,7 @@ namespace AuthApi.Controllers
         }
 
         // Delete: Books/Delete/5
-        [HttpDelete("DeleteBooks")]
+        [HttpDelete("DeleteUsers")]
         public async Task<bool> DeleteConfirmed(int id)
         {
             var book = await _context.Books.FindAsync(id);
