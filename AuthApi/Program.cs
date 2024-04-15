@@ -3,7 +3,6 @@ using AuthAi.Interfaces;
 using AuthAi.Models;
 using AuthAi.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
